@@ -1,0 +1,1493 @@
+Timing Analyzer report for MooreVerilog
+Fri Dec 15 22:04:34 2023
+Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'clockFPGA'
+ 13. Slow 1200mV 85C Model Setup: 'divisor:div|S'
+ 14. Slow 1200mV 85C Model Hold: 'divisor:div|S'
+ 15. Slow 1200mV 85C Model Hold: 'clockFPGA'
+ 16. Slow 1200mV 85C Model Metastability Summary
+ 17. Slow 1200mV 0C Model Fmax Summary
+ 18. Slow 1200mV 0C Model Setup Summary
+ 19. Slow 1200mV 0C Model Hold Summary
+ 20. Slow 1200mV 0C Model Recovery Summary
+ 21. Slow 1200mV 0C Model Removal Summary
+ 22. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 23. Slow 1200mV 0C Model Setup: 'clockFPGA'
+ 24. Slow 1200mV 0C Model Setup: 'divisor:div|S'
+ 25. Slow 1200mV 0C Model Hold: 'divisor:div|S'
+ 26. Slow 1200mV 0C Model Hold: 'clockFPGA'
+ 27. Slow 1200mV 0C Model Metastability Summary
+ 28. Fast 1200mV 0C Model Setup Summary
+ 29. Fast 1200mV 0C Model Hold Summary
+ 30. Fast 1200mV 0C Model Recovery Summary
+ 31. Fast 1200mV 0C Model Removal Summary
+ 32. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 33. Fast 1200mV 0C Model Setup: 'clockFPGA'
+ 34. Fast 1200mV 0C Model Setup: 'divisor:div|S'
+ 35. Fast 1200mV 0C Model Hold: 'divisor:div|S'
+ 36. Fast 1200mV 0C Model Hold: 'clockFPGA'
+ 37. Fast 1200mV 0C Model Metastability Summary
+ 38. Multicorner Timing Analysis Summary
+ 39. Board Trace Model Assignments
+ 40. Input Transition Times
+ 41. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 42. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 43. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 44. Setup Transfers
+ 45. Hold Transfers
+ 46. Report TCCS
+ 47. Report RSKM
+ 48. Unconstrained Paths Summary
+ 49. Clock Status Summary
+ 50. Unconstrained Input Ports
+ 51. Unconstrained Output Ports
+ 52. Unconstrained Input Ports
+ 53. Unconstrained Output Ports
+ 54. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; MooreVerilog                                        ;
+; Device Family         ; Cyclone IV E                                        ;
+; Device Name           ; EP4CE115F29C7                                       ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Combined                                            ;
+; Rise/Fall Delays      ; Enabled                                             ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.4%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                       ;
++---------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------+
+; Clock Name    ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets           ;
++---------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------+
+; clockFPGA     ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clockFPGA }     ;
+; divisor:div|S ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { divisor:div|S } ;
++---------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                           ;
++------------+-----------------+---------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name    ; Note                                                          ;
++------------+-----------------+---------------+---------------------------------------------------------------+
+; 281.21 MHz ; 250.0 MHz       ; clockFPGA     ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 610.87 MHz ; 437.64 MHz      ; divisor:div|S ; limit due to minimum period restriction (tmin)                ;
++------------+-----------------+---------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++----------------------------------------+
+; Slow 1200mV 85C Model Setup Summary    ;
++---------------+--------+---------------+
+; Clock         ; Slack  ; End Point TNS ;
++---------------+--------+---------------+
+; clockFPGA     ; -2.556 ; -47.880       ;
+; divisor:div|S ; -0.637 ; -4.148        ;
++---------------+--------+---------------+
+
+
++---------------------------------------+
+; Slow 1200mV 85C Model Hold Summary    ;
++---------------+-------+---------------+
+; Clock         ; Slack ; End Point TNS ;
++---------------+-------+---------------+
+; divisor:div|S ; 0.386 ; 0.000         ;
+; clockFPGA     ; 0.641 ; 0.000         ;
++---------------+-------+---------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++---------------+--------+--------------------------+
+; Clock         ; Slack  ; End Point TNS            ;
++---------------+--------+--------------------------+
+; clockFPGA     ; -3.000 ; -37.695                  ;
+; divisor:div|S ; -1.285 ; -12.850                  ;
++---------------+--------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clockFPGA'                                                                                 ;
++--------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node           ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; -2.556 ; divisor:div|OUT[8]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.473      ;
+; -2.555 ; divisor:div|OUT[8]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.472      ;
+; -2.555 ; divisor:div|OUT[8]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.472      ;
+; -2.542 ; divisor:div|OUT[7]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.459      ;
+; -2.542 ; divisor:div|OUT[7]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.459      ;
+; -2.542 ; divisor:div|OUT[7]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.459      ;
+; -2.468 ; divisor:div|OUT[1]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.385      ;
+; -2.467 ; divisor:div|OUT[1]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.384      ;
+; -2.467 ; divisor:div|OUT[1]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.384      ;
+; -2.453 ; divisor:div|OUT[2]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.370      ;
+; -2.452 ; divisor:div|OUT[2]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.369      ;
+; -2.452 ; divisor:div|OUT[2]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.369      ;
+; -2.441 ; divisor:div|OUT[11] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.358      ;
+; -2.440 ; divisor:div|OUT[11] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.357      ;
+; -2.440 ; divisor:div|OUT[11] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.357      ;
+; -2.438 ; divisor:div|OUT[7]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.354      ;
+; -2.405 ; divisor:div|OUT[8]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.321      ;
+; -2.400 ; divisor:div|OUT[0]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.316      ;
+; -2.395 ; divisor:div|OUT[3]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.312      ;
+; -2.394 ; divisor:div|OUT[3]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.311      ;
+; -2.394 ; divisor:div|OUT[3]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.311      ;
+; -2.368 ; divisor:div|OUT[10] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.285      ;
+; -2.367 ; divisor:div|OUT[10] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.284      ;
+; -2.367 ; divisor:div|OUT[10] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.284      ;
+; -2.354 ; divisor:div|OUT[6]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.271      ;
+; -2.353 ; divisor:div|OUT[6]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.270      ;
+; -2.353 ; divisor:div|OUT[6]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.270      ;
+; -2.342 ; divisor:div|OUT[1]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.258      ;
+; -2.339 ; divisor:div|OUT[25] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.509     ; 2.828      ;
+; -2.339 ; divisor:div|OUT[25] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.509     ; 2.828      ;
+; -2.339 ; divisor:div|OUT[25] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.509     ; 2.828      ;
+; -2.317 ; divisor:div|OUT[1]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.233      ;
+; -2.314 ; divisor:div|OUT[20] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.509     ; 2.803      ;
+; -2.314 ; divisor:div|OUT[15] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.510     ; 2.802      ;
+; -2.314 ; divisor:div|OUT[20] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.509     ; 2.803      ;
+; -2.314 ; divisor:div|OUT[15] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.510     ; 2.802      ;
+; -2.314 ; divisor:div|OUT[20] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.509     ; 2.803      ;
+; -2.314 ; divisor:div|OUT[15] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.510     ; 2.802      ;
+; -2.305 ; divisor:div|OUT[0]  ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.331      ; 3.634      ;
+; -2.302 ; divisor:div|OUT[2]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.218      ;
+; -2.290 ; divisor:div|OUT[11] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.206      ;
+; -2.285 ; divisor:div|OUT[0]  ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.331      ; 3.614      ;
+; -2.279 ; divisor:div|OUT[3]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.195      ;
+; -2.267 ; divisor:div|OUT[1]  ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.331      ; 3.596      ;
+; -2.265 ; divisor:div|OUT[2]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.181      ;
+; -2.251 ; divisor:div|OUT[1]  ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.331      ; 3.580      ;
+; -2.248 ; divisor:div|OUT[0]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.330      ; 3.576      ;
+; -2.248 ; divisor:div|OUT[9]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.165      ;
+; -2.247 ; divisor:div|OUT[9]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.164      ;
+; -2.247 ; divisor:div|OUT[9]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.164      ;
+; -2.247 ; divisor:div|OUT[1]  ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.331      ; 3.576      ;
+; -2.235 ; divisor:div|OUT[25] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.510     ; 2.723      ;
+; -2.232 ; divisor:div|OUT[6]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.148      ;
+; -2.217 ; divisor:div|OUT[10] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.133      ;
+; -2.211 ; divisor:div|OUT[1]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.330      ; 3.539      ;
+; -2.210 ; divisor:div|OUT[20] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.510     ; 2.698      ;
+; -2.210 ; divisor:div|OUT[15] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.511     ; 2.697      ;
+; -2.207 ; divisor:div|OUT[3]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.123      ;
+; -2.206 ; divisor:div|OUT[17] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.509     ; 2.695      ;
+; -2.206 ; divisor:div|OUT[17] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.509     ; 2.695      ;
+; -2.206 ; divisor:div|OUT[17] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.509     ; 2.695      ;
+; -2.182 ; divisor:div|OUT[12] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.099      ;
+; -2.182 ; divisor:div|OUT[12] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.099      ;
+; -2.182 ; divisor:div|OUT[12] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.099      ;
+; -2.176 ; divisor:div|OUT[5]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.093      ;
+; -2.176 ; divisor:div|OUT[0]  ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.331      ; 3.505      ;
+; -2.175 ; divisor:div|OUT[5]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.092      ;
+; -2.175 ; divisor:div|OUT[5]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.092      ;
+; -2.173 ; divisor:div|OUT[8]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.330      ; 3.501      ;
+; -2.170 ; divisor:div|OUT[2]  ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.331      ; 3.499      ;
+; -2.158 ; divisor:div|OUT[7]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.330      ; 3.486      ;
+; -2.157 ; divisor:div|OUT[7]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.073      ;
+; -2.150 ; divisor:div|OUT[2]  ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.331      ; 3.479      ;
+; -2.148 ; divisor:div|OUT[7]  ; divisor:div|S       ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.064      ;
+; -2.137 ; divisor:div|OUT[4]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.053      ;
+; -2.136 ; divisor:div|OUT[0]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.053      ;
+; -2.135 ; divisor:div|OUT[0]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.052      ;
+; -2.135 ; divisor:div|OUT[0]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 3.052      ;
+; -2.132 ; divisor:div|OUT[3]  ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.331      ; 3.461      ;
+; -2.127 ; divisor:div|OUT[8]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.043      ;
+; -2.125 ; divisor:div|OUT[8]  ; divisor:div|S       ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.041      ;
+; -2.123 ; divisor:div|OUT[1]  ; divisor:div|OUT[20] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.330      ; 3.451      ;
+; -2.116 ; divisor:div|OUT[3]  ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.331      ; 3.445      ;
+; -2.113 ; divisor:div|OUT[2]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.330      ; 3.441      ;
+; -2.112 ; divisor:div|OUT[3]  ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.331      ; 3.441      ;
+; -2.102 ; divisor:div|OUT[17] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.510     ; 2.590      ;
+; -2.097 ; divisor:div|OUT[9]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.013      ;
+; -2.084 ; divisor:div|OUT[0]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 3.000      ;
+; -2.079 ; divisor:div|OUT[5]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 2.995      ;
+; -2.078 ; divisor:div|OUT[12] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.082     ; 2.994      ;
+; -2.076 ; divisor:div|OUT[3]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.330      ; 3.404      ;
+; -2.074 ; divisor:div|OUT[21] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.510     ; 2.562      ;
+; -2.074 ; divisor:div|OUT[21] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.510     ; 2.562      ;
+; -2.074 ; divisor:div|OUT[21] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.510     ; 2.562      ;
+; -2.069 ; divisor:div|OUT[23] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.510     ; 2.557      ;
+; -2.069 ; divisor:div|OUT[23] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.510     ; 2.557      ;
+; -2.069 ; divisor:div|OUT[23] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.510     ; 2.557      ;
+; -2.060 ; divisor:div|OUT[4]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 2.977      ;
+; -2.059 ; divisor:div|OUT[4]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 2.976      ;
+; -2.059 ; divisor:div|OUT[4]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.081     ; 2.976      ;
++--------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'divisor:div|S'                                                                                ;
++--------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+; Slack  ; From Node           ; To Node             ; Launch Clock  ; Latch Clock   ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+; -0.637 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.555      ;
+; -0.610 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.528      ;
+; -0.601 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.519      ;
+; -0.517 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.508     ; 1.007      ;
+; -0.449 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.367      ;
+; -0.438 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.356      ;
+; -0.437 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.355      ;
+; -0.430 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.348      ;
+; -0.429 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.347      ;
+; -0.427 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.345      ;
+; -0.414 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.332      ;
+; -0.414 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.332      ;
+; -0.382 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.300      ;
+; -0.381 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.299      ;
+; -0.343 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.508     ; 0.833      ;
+; -0.279 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.197      ;
+; -0.274 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.192      ;
+; -0.274 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.192      ;
+; -0.274 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.192      ;
+; -0.272 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.190      ;
+; -0.267 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.185      ;
+; -0.239 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.157      ;
+; -0.203 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.121      ;
+; -0.178 ; MooreMachine:mm|y.J ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 1.000        ; 0.331      ; 1.507      ;
+; -0.118 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 1.036      ;
+; -0.070 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 1.000        ; 0.331      ; 1.399      ;
+; 0.005  ; MooreMachine:mm|y.I ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 1.000        ; 0.331      ; 1.324      ;
+; 0.167  ; MooreMachine:mm|y.A ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.097     ; 0.734      ;
+; 0.184  ; MooreMachine:mm|y.J ; MooreMachine:mm|y.J ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.080     ; 0.734      ;
++--------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'divisor:div|S'                                                                                ;
++-------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+; Slack ; From Node           ; To Node             ; Launch Clock  ; Latch Clock   ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+; 0.386 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.097      ; 0.669      ;
+; 0.403 ; MooreMachine:mm|y.J ; MooreMachine:mm|y.J ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 0.669      ;
+; 0.524 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.508      ; 1.218      ;
+; 0.533 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.508      ; 1.227      ;
+; 0.575 ; MooreMachine:mm|y.J ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.508      ; 1.269      ;
+; 0.616 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 0.882      ;
+; 0.714 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 0.980      ;
+; 0.731 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 0.997      ;
+; 0.734 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.000      ;
+; 0.814 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.080      ;
+; 0.814 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.080      ;
+; 0.814 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.080      ;
+; 0.816 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.082      ;
+; 0.818 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.084      ;
+; 0.861 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 0.000        ; -0.331     ; 0.716      ;
+; 0.880 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.146      ;
+; 0.916 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.182      ;
+; 0.916 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.182      ;
+; 0.932 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.198      ;
+; 0.934 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.200      ;
+; 0.939 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.205      ;
+; 0.940 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.206      ;
+; 0.950 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.216      ;
+; 0.954 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.220      ;
+; 0.995 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.261      ;
+; 1.052 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 0.000        ; -0.331     ; 0.907      ;
+; 1.053 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.319      ;
+; 1.063 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.329      ;
+; 1.085 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.080      ; 1.351      ;
++-------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clockFPGA'                                                                                 ;
++-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node           ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; 0.641 ; divisor:div|OUT[24] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.098      ; 0.925      ;
+; 0.654 ; divisor:div|OUT[3]  ; divisor:div|OUT[3]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 0.921      ;
+; 0.656 ; divisor:div|OUT[11] ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 0.923      ;
+; 0.656 ; divisor:div|OUT[10] ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 0.923      ;
+; 0.656 ; divisor:div|OUT[2]  ; divisor:div|OUT[2]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 0.923      ;
+; 0.657 ; divisor:div|OUT[1]  ; divisor:div|OUT[1]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 0.924      ;
+; 0.657 ; divisor:div|OUT[9]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 0.924      ;
+; 0.657 ; divisor:div|OUT[8]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 0.924      ;
+; 0.657 ; divisor:div|OUT[5]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 0.924      ;
+; 0.658 ; divisor:div|OUT[18] ; divisor:div|OUT[18] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.080      ; 0.924      ;
+; 0.658 ; divisor:div|OUT[16] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.080      ; 0.924      ;
+; 0.660 ; divisor:div|OUT[6]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 0.927      ;
+; 0.660 ; divisor:div|OUT[4]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 0.927      ;
+; 0.811 ; divisor:div|OUT[18] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.511      ; 1.508      ;
+; 0.937 ; divisor:div|OUT[16] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.511      ; 1.634      ;
+; 0.972 ; divisor:div|OUT[3]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.239      ;
+; 0.974 ; divisor:div|OUT[9]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.241      ;
+; 0.974 ; divisor:div|OUT[1]  ; divisor:div|OUT[2]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.241      ;
+; 0.974 ; divisor:div|OUT[5]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.241      ;
+; 0.975 ; divisor:div|OUT[7]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.242      ;
+; 0.983 ; divisor:div|OUT[2]  ; divisor:div|OUT[3]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.250      ;
+; 0.983 ; divisor:div|OUT[10] ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.250      ;
+; 0.984 ; divisor:div|OUT[25] ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.098      ; 1.268      ;
+; 0.984 ; divisor:div|OUT[8]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.251      ;
+; 0.986 ; divisor:div|OUT[0]  ; divisor:div|OUT[1]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.253      ;
+; 0.987 ; divisor:div|OUT[4]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.254      ;
+; 0.988 ; divisor:div|OUT[2]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.255      ;
+; 0.989 ; divisor:div|OUT[8]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.256      ;
+; 0.990 ; divisor:div|OUT[16] ; divisor:div|OUT[18] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.080      ; 1.256      ;
+; 0.991 ; divisor:div|OUT[0]  ; divisor:div|OUT[2]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.258      ;
+; 0.992 ; divisor:div|OUT[4]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.259      ;
+; 0.992 ; divisor:div|OUT[6]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.259      ;
+; 1.031 ; divisor:div|OUT[18] ; divisor:div|OUT[20] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.511      ; 1.728      ;
+; 1.032 ; divisor:div|OUT[16] ; divisor:div|OUT[17] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.511      ; 1.729      ;
+; 1.047 ; divisor:div|OUT[18] ; divisor:div|OUT[19] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.512      ; 1.745      ;
+; 1.093 ; divisor:div|OUT[3]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.360      ;
+; 1.095 ; divisor:div|OUT[1]  ; divisor:div|OUT[3]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.362      ;
+; 1.095 ; divisor:div|OUT[9]  ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.362      ;
+; 1.096 ; divisor:div|OUT[7]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.363      ;
+; 1.098 ; divisor:div|OUT[3]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.365      ;
+; 1.100 ; divisor:div|OUT[1]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.367      ;
+; 1.100 ; divisor:div|OUT[5]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.367      ;
+; 1.101 ; divisor:div|OUT[7]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.368      ;
+; 1.102 ; divisor:div|OUT[20] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.098      ; 1.386      ;
+; 1.109 ; divisor:div|OUT[2]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.376      ;
+; 1.110 ; divisor:div|OUT[8]  ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.377      ;
+; 1.112 ; divisor:div|OUT[17] ; divisor:div|OUT[17] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.098      ; 1.396      ;
+; 1.112 ; divisor:div|OUT[0]  ; divisor:div|OUT[3]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.379      ;
+; 1.113 ; divisor:div|OUT[6]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.380      ;
+; 1.114 ; divisor:div|OUT[2]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.381      ;
+; 1.115 ; divisor:div|OUT[18] ; divisor:div|OUT[15] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.512      ; 1.813      ;
+; 1.115 ; divisor:div|OUT[18] ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.512      ; 1.813      ;
+; 1.116 ; divisor:div|OUT[20] ; divisor:div|OUT[20] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.098      ; 1.400      ;
+; 1.117 ; divisor:div|OUT[0]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.384      ;
+; 1.118 ; divisor:div|OUT[4]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.385      ;
+; 1.118 ; divisor:div|OUT[6]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.385      ;
+; 1.124 ; divisor:div|OUT[12] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.078      ; 1.388      ;
+; 1.127 ; divisor:div|OUT[23] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.097      ; 1.410      ;
+; 1.136 ; divisor:div|OUT[12] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.403      ;
+; 1.157 ; divisor:div|OUT[16] ; divisor:div|OUT[20] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.511      ; 1.854      ;
+; 1.160 ; divisor:div|OUT[14] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.079      ; 1.425      ;
+; 1.173 ; divisor:div|OUT[16] ; divisor:div|OUT[19] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.512      ; 1.871      ;
+; 1.186 ; divisor:div|OUT[18] ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.512      ; 1.884      ;
+; 1.187 ; divisor:div|OUT[22] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.097      ; 1.470      ;
+; 1.197 ; divisor:div|OUT[12] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.509      ; 1.892      ;
+; 1.204 ; divisor:div|OUT[16] ; divisor:div|OUT[15] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.512      ; 1.902      ;
+; 1.204 ; divisor:div|OUT[16] ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.512      ; 1.902      ;
+; 1.221 ; divisor:div|OUT[1]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.488      ;
+; 1.221 ; divisor:div|OUT[5]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.488      ;
+; 1.222 ; divisor:div|OUT[7]  ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.489      ;
+; 1.224 ; divisor:div|OUT[3]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.491      ;
+; 1.226 ; divisor:div|OUT[1]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.493      ;
+; 1.226 ; divisor:div|OUT[5]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.493      ;
+; 1.228 ; divisor:div|OUT[11] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.078      ; 1.492      ;
+; 1.233 ; divisor:div|OUT[14] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.510      ; 1.929      ;
+; 1.238 ; divisor:div|OUT[0]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.505      ;
+; 1.239 ; divisor:div|OUT[4]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.506      ;
+; 1.239 ; divisor:div|OUT[6]  ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.506      ;
+; 1.240 ; divisor:div|OUT[2]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.507      ;
+; 1.243 ; divisor:div|OUT[0]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.510      ;
+; 1.243 ; divisor:div|OUT[10] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.078      ; 1.507      ;
+; 1.244 ; divisor:div|OUT[4]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.511      ;
+; 1.250 ; divisor:div|OUT[12] ; divisor:div|OUT[18] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.078      ; 1.514      ;
+; 1.259 ; divisor:div|OUT[7]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.526      ;
+; 1.267 ; divisor:div|OUT[13] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.079      ; 1.532      ;
+; 1.269 ; divisor:div|OUT[18] ; divisor:div|OUT[17] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.511      ; 1.966      ;
+; 1.270 ; divisor:div|OUT[18] ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.511      ; 1.967      ;
+; 1.286 ; divisor:div|OUT[14] ; divisor:div|OUT[18] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.079      ; 1.551      ;
+; 1.292 ; divisor:div|OUT[12] ; divisor:div|OUT[17] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.509      ; 1.987      ;
+; 1.297 ; divisor:div|OUT[0]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.081      ; 1.564      ;
+; 1.299 ; divisor:div|OUT[21] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.097      ; 1.582      ;
+; 1.301 ; divisor:div|OUT[11] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.509      ; 1.996      ;
+; 1.305 ; divisor:div|OUT[18] ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.512      ; 2.003      ;
+; 1.306 ; divisor:div|OUT[24] ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.098      ; 1.590      ;
+; 1.312 ; divisor:div|OUT[16] ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.512      ; 2.010      ;
+; 1.315 ; divisor:div|OUT[12] ; divisor:div|OUT[15] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.510      ; 2.011      ;
+; 1.316 ; divisor:div|OUT[10] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.509      ; 2.011      ;
+; 1.328 ; divisor:div|OUT[14] ; divisor:div|OUT[17] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.510      ; 2.024      ;
+; 1.329 ; divisor:div|OUT[23] ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.098      ; 1.613      ;
+; 1.335 ; divisor:div|OUT[17] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.098      ; 1.619      ;
++-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                            ;
++------------+-----------------+---------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name    ; Note                                                          ;
++------------+-----------------+---------------+---------------------------------------------------------------+
+; 305.72 MHz ; 250.0 MHz       ; clockFPGA     ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 678.43 MHz ; 437.64 MHz      ; divisor:div|S ; limit due to minimum period restriction (tmin)                ;
++------------+-----------------+---------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++----------------------------------------+
+; Slow 1200mV 0C Model Setup Summary     ;
++---------------+--------+---------------+
+; Clock         ; Slack  ; End Point TNS ;
++---------------+--------+---------------+
+; clockFPGA     ; -2.271 ; -40.476       ;
+; divisor:div|S ; -0.474 ; -2.839        ;
++---------------+--------+---------------+
+
+
++---------------------------------------+
+; Slow 1200mV 0C Model Hold Summary     ;
++---------------+-------+---------------+
+; Clock         ; Slack ; End Point TNS ;
++---------------+-------+---------------+
+; divisor:div|S ; 0.338 ; 0.000         ;
+; clockFPGA     ; 0.586 ; 0.000         ;
++---------------+-------+---------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++---------------+--------+-------------------------+
+; Clock         ; Slack  ; End Point TNS           ;
++---------------+--------+-------------------------+
+; clockFPGA     ; -3.000 ; -37.695                 ;
+; divisor:div|S ; -1.285 ; -12.850                 ;
++---------------+--------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clockFPGA'                                                                                  ;
++--------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node           ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; -2.271 ; divisor:div|OUT[7]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.198      ;
+; -2.271 ; divisor:div|OUT[7]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.198      ;
+; -2.271 ; divisor:div|OUT[7]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.198      ;
+; -2.263 ; divisor:div|OUT[8]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.190      ;
+; -2.263 ; divisor:div|OUT[8]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.190      ;
+; -2.263 ; divisor:div|OUT[8]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.190      ;
+; -2.192 ; divisor:div|OUT[1]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.119      ;
+; -2.192 ; divisor:div|OUT[1]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.119      ;
+; -2.192 ; divisor:div|OUT[1]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.119      ;
+; -2.170 ; divisor:div|OUT[2]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.097      ;
+; -2.170 ; divisor:div|OUT[2]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.097      ;
+; -2.170 ; divisor:div|OUT[2]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.097      ;
+; -2.160 ; divisor:div|OUT[11] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.087      ;
+; -2.160 ; divisor:div|OUT[11] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.087      ;
+; -2.160 ; divisor:div|OUT[11] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.087      ;
+; -2.115 ; divisor:div|OUT[7]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 3.040      ;
+; -2.109 ; divisor:div|OUT[3]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.036      ;
+; -2.109 ; divisor:div|OUT[3]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.036      ;
+; -2.109 ; divisor:div|OUT[3]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.036      ;
+; -2.107 ; divisor:div|OUT[8]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 3.032      ;
+; -2.102 ; divisor:div|OUT[10] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.029      ;
+; -2.102 ; divisor:div|OUT[10] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.029      ;
+; -2.102 ; divisor:div|OUT[10] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.029      ;
+; -2.081 ; divisor:div|OUT[0]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 3.006      ;
+; -2.074 ; divisor:div|OUT[6]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.001      ;
+; -2.074 ; divisor:div|OUT[6]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.001      ;
+; -2.074 ; divisor:div|OUT[6]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 3.001      ;
+; -2.036 ; divisor:div|OUT[1]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.961      ;
+; -2.025 ; divisor:div|OUT[25] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.465     ; 2.559      ;
+; -2.025 ; divisor:div|OUT[25] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.465     ; 2.559      ;
+; -2.025 ; divisor:div|OUT[25] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.465     ; 2.559      ;
+; -2.014 ; divisor:div|OUT[2]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.939      ;
+; -2.005 ; divisor:div|OUT[20] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.465     ; 2.539      ;
+; -2.005 ; divisor:div|OUT[20] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.465     ; 2.539      ;
+; -2.005 ; divisor:div|OUT[20] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.465     ; 2.539      ;
+; -2.004 ; divisor:div|OUT[11] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.929      ;
+; -2.002 ; divisor:div|OUT[1]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.927      ;
+; -1.990 ; divisor:div|OUT[9]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.917      ;
+; -1.990 ; divisor:div|OUT[9]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.917      ;
+; -1.990 ; divisor:div|OUT[9]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.917      ;
+; -1.985 ; divisor:div|OUT[15] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.466     ; 2.518      ;
+; -1.985 ; divisor:div|OUT[15] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.466     ; 2.518      ;
+; -1.985 ; divisor:div|OUT[15] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.466     ; 2.518      ;
+; -1.967 ; divisor:div|OUT[3]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.892      ;
+; -1.964 ; divisor:div|OUT[0]  ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.269      ;
+; -1.962 ; divisor:div|OUT[2]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.887      ;
+; -1.951 ; divisor:div|OUT[0]  ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.256      ;
+; -1.946 ; divisor:div|OUT[10] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.871      ;
+; -1.923 ; divisor:div|OUT[5]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.850      ;
+; -1.923 ; divisor:div|OUT[5]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.850      ;
+; -1.923 ; divisor:div|OUT[5]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.850      ;
+; -1.920 ; divisor:div|OUT[1]  ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.225      ;
+; -1.919 ; divisor:div|OUT[6]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.844      ;
+; -1.915 ; divisor:div|OUT[7]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.220      ;
+; -1.909 ; divisor:div|OUT[25] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.467     ; 2.441      ;
+; -1.907 ; divisor:div|OUT[8]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.212      ;
+; -1.898 ; divisor:div|OUT[12] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.825      ;
+; -1.898 ; divisor:div|OUT[12] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.825      ;
+; -1.898 ; divisor:div|OUT[12] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.825      ;
+; -1.895 ; divisor:div|OUT[0]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.200      ;
+; -1.892 ; divisor:div|OUT[15] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.468     ; 2.423      ;
+; -1.890 ; divisor:div|OUT[0]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.817      ;
+; -1.890 ; divisor:div|OUT[0]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.817      ;
+; -1.890 ; divisor:div|OUT[0]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.817      ;
+; -1.885 ; divisor:div|OUT[17] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.465     ; 2.419      ;
+; -1.885 ; divisor:div|OUT[17] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.465     ; 2.419      ;
+; -1.885 ; divisor:div|OUT[17] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.465     ; 2.419      ;
+; -1.885 ; divisor:div|OUT[20] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.467     ; 2.417      ;
+; -1.885 ; divisor:div|OUT[1]  ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.190      ;
+; -1.883 ; divisor:div|OUT[3]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.808      ;
+; -1.874 ; divisor:div|OUT[1]  ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.179      ;
+; -1.870 ; divisor:div|OUT[7]  ; divisor:div|S       ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.795      ;
+; -1.862 ; divisor:div|OUT[7]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.787      ;
+; -1.862 ; divisor:div|OUT[8]  ; divisor:div|S       ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.787      ;
+; -1.854 ; divisor:div|OUT[8]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.779      ;
+; -1.851 ; divisor:div|OUT[4]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.776      ;
+; -1.845 ; divisor:div|OUT[2]  ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.150      ;
+; -1.840 ; divisor:div|OUT[0]  ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.145      ;
+; -1.836 ; divisor:div|OUT[1]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.141      ;
+; -1.834 ; divisor:div|OUT[9]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.759      ;
+; -1.832 ; divisor:div|OUT[2]  ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.137      ;
+; -1.814 ; divisor:div|OUT[4]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.741      ;
+; -1.814 ; divisor:div|OUT[4]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.741      ;
+; -1.814 ; divisor:div|OUT[4]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.072     ; 2.741      ;
+; -1.814 ; divisor:div|OUT[2]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.119      ;
+; -1.804 ; divisor:div|OUT[11] ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.109      ;
+; -1.801 ; divisor:div|OUT[3]  ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.106      ;
+; -1.792 ; divisor:div|OUT[17] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.467     ; 2.324      ;
+; -1.791 ; divisor:div|OUT[1]  ; divisor:div|S       ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.716      ;
+; -1.777 ; divisor:div|OUT[0]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.702      ;
+; -1.771 ; divisor:div|OUT[5]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.696      ;
+; -1.769 ; divisor:div|OUT[2]  ; divisor:div|S       ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.694      ;
+; -1.767 ; divisor:div|OUT[5]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.692      ;
+; -1.766 ; divisor:div|OUT[3]  ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.071      ;
+; -1.764 ; divisor:div|OUT[1]  ; divisor:div|OUT[20] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.306      ; 3.069      ;
+; -1.763 ; divisor:div|OUT[21] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.466     ; 2.296      ;
+; -1.763 ; divisor:div|OUT[21] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.466     ; 2.296      ;
+; -1.763 ; divisor:div|OUT[21] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.466     ; 2.296      ;
+; -1.759 ; divisor:div|OUT[12] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.684      ;
+; -1.759 ; divisor:div|OUT[11] ; divisor:div|S       ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.074     ; 2.684      ;
++--------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'divisor:div|S'                                                                                 ;
++--------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+; Slack  ; From Node           ; To Node             ; Launch Clock  ; Latch Clock   ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+; -0.474 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.400      ;
+; -0.446 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.372      ;
+; -0.444 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.370      ;
+; -0.374 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.467     ; 0.906      ;
+; -0.307 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.233      ;
+; -0.299 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.072     ; 1.226      ;
+; -0.296 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.222      ;
+; -0.295 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.221      ;
+; -0.289 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.215      ;
+; -0.287 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.213      ;
+; -0.274 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.200      ;
+; -0.274 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.200      ;
+; -0.255 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.074     ; 1.180      ;
+; -0.236 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.162      ;
+; -0.223 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.466     ; 0.756      ;
+; -0.151 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.077      ;
+; -0.148 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.074      ;
+; -0.148 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.074      ;
+; -0.147 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.073      ;
+; -0.145 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.071      ;
+; -0.136 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.062      ;
+; -0.111 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.037      ;
+; -0.082 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 1.008      ;
+; -0.056 ; MooreMachine:mm|y.J ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 1.000        ; 0.305      ; 1.360      ;
+; -0.004 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 0.930      ;
+; 0.040  ; MooreMachine:mm|y.B ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 1.000        ; 0.305      ; 1.264      ;
+; 0.109  ; MooreMachine:mm|y.I ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 1.000        ; 0.306      ; 1.196      ;
+; 0.252  ; MooreMachine:mm|y.A ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.088     ; 0.659      ;
+; 0.267  ; MooreMachine:mm|y.J ; MooreMachine:mm|y.J ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.073     ; 0.659      ;
++--------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'divisor:div|S'                                                                                 ;
++-------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+; Slack ; From Node           ; To Node             ; Launch Clock  ; Latch Clock   ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+; 0.338 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.088      ; 0.597      ;
+; 0.353 ; MooreMachine:mm|y.J ; MooreMachine:mm|y.J ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 0.597      ;
+; 0.472 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.466      ; 1.109      ;
+; 0.496 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.467      ; 1.134      ;
+; 0.520 ; MooreMachine:mm|y.J ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.466      ; 1.157      ;
+; 0.562 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 0.806      ;
+; 0.649 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 0.893      ;
+; 0.664 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 0.908      ;
+; 0.672 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 0.916      ;
+; 0.751 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 0.995      ;
+; 0.752 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 0.996      ;
+; 0.752 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 0.996      ;
+; 0.753 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 0.997      ;
+; 0.754 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 0.998      ;
+; 0.784 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 0.000        ; -0.305     ; 0.650      ;
+; 0.811 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 1.055      ;
+; 0.842 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 1.086      ;
+; 0.842 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 1.086      ;
+; 0.857 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 1.101      ;
+; 0.858 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 1.102      ;
+; 0.859 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.072      ; 1.102      ;
+; 0.863 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 1.107      ;
+; 0.864 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 1.108      ;
+; 0.876 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 1.120      ;
+; 0.902 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.074      ; 1.147      ;
+; 0.967 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 1.211      ;
+; 0.971 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 0.000        ; -0.306     ; 0.836      ;
+; 0.974 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 1.218      ;
+; 0.994 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.073      ; 1.238      ;
++-------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clockFPGA'                                                                                  ;
++-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node           ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; 0.586 ; divisor:div|OUT[24] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.087      ; 0.844      ;
+; 0.599 ; divisor:div|OUT[10] ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 0.842      ;
+; 0.599 ; divisor:div|OUT[3]  ; divisor:div|OUT[3]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 0.842      ;
+; 0.599 ; divisor:div|OUT[2]  ; divisor:div|OUT[2]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 0.842      ;
+; 0.600 ; divisor:div|OUT[18] ; divisor:div|OUT[18] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 0.843      ;
+; 0.600 ; divisor:div|OUT[16] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 0.843      ;
+; 0.600 ; divisor:div|OUT[8]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 0.843      ;
+; 0.601 ; divisor:div|OUT[11] ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 0.844      ;
+; 0.602 ; divisor:div|OUT[1]  ; divisor:div|OUT[1]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 0.845      ;
+; 0.602 ; divisor:div|OUT[9]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 0.845      ;
+; 0.602 ; divisor:div|OUT[5]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 0.845      ;
+; 0.604 ; divisor:div|OUT[6]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 0.847      ;
+; 0.604 ; divisor:div|OUT[4]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 0.847      ;
+; 0.723 ; divisor:div|OUT[18] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.468      ; 1.362      ;
+; 0.833 ; divisor:div|OUT[16] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.468      ; 1.472      ;
+; 0.885 ; divisor:div|OUT[3]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.128      ;
+; 0.887 ; divisor:div|OUT[2]  ; divisor:div|OUT[3]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.130      ;
+; 0.887 ; divisor:div|OUT[10] ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.130      ;
+; 0.888 ; divisor:div|OUT[8]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.131      ;
+; 0.889 ; divisor:div|OUT[9]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.132      ;
+; 0.889 ; divisor:div|OUT[1]  ; divisor:div|OUT[2]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.132      ;
+; 0.889 ; divisor:div|OUT[5]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.132      ;
+; 0.890 ; divisor:div|OUT[7]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.133      ;
+; 0.891 ; divisor:div|OUT[0]  ; divisor:div|OUT[1]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.134      ;
+; 0.892 ; divisor:div|OUT[4]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.135      ;
+; 0.898 ; divisor:div|OUT[2]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.141      ;
+; 0.899 ; divisor:div|OUT[16] ; divisor:div|OUT[18] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.142      ;
+; 0.899 ; divisor:div|OUT[8]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.142      ;
+; 0.902 ; divisor:div|OUT[0]  ; divisor:div|OUT[2]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.145      ;
+; 0.903 ; divisor:div|OUT[4]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.146      ;
+; 0.903 ; divisor:div|OUT[6]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.146      ;
+; 0.904 ; divisor:div|OUT[25] ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.087      ; 1.162      ;
+; 0.930 ; divisor:div|OUT[18] ; divisor:div|OUT[19] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.469      ; 1.570      ;
+; 0.937 ; divisor:div|OUT[16] ; divisor:div|OUT[17] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.468      ; 1.576      ;
+; 0.937 ; divisor:div|OUT[18] ; divisor:div|OUT[20] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.468      ; 1.576      ;
+; 0.984 ; divisor:div|OUT[3]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.227      ;
+; 0.988 ; divisor:div|OUT[1]  ; divisor:div|OUT[3]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.231      ;
+; 0.988 ; divisor:div|OUT[9]  ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.231      ;
+; 0.989 ; divisor:div|OUT[7]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.232      ;
+; 0.995 ; divisor:div|OUT[3]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.238      ;
+; 0.997 ; divisor:div|OUT[2]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.240      ;
+; 0.998 ; divisor:div|OUT[8]  ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.241      ;
+; 0.999 ; divisor:div|OUT[20] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.087      ; 1.257      ;
+; 0.999 ; divisor:div|OUT[1]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.242      ;
+; 0.999 ; divisor:div|OUT[5]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.242      ;
+; 1.000 ; divisor:div|OUT[7]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.243      ;
+; 1.001 ; divisor:div|OUT[0]  ; divisor:div|OUT[3]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.244      ;
+; 1.002 ; divisor:div|OUT[6]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.245      ;
+; 1.003 ; divisor:div|OUT[18] ; divisor:div|OUT[15] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.469      ; 1.643      ;
+; 1.003 ; divisor:div|OUT[18] ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.469      ; 1.643      ;
+; 1.008 ; divisor:div|OUT[2]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.251      ;
+; 1.012 ; divisor:div|OUT[0]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.255      ;
+; 1.013 ; divisor:div|OUT[4]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.256      ;
+; 1.013 ; divisor:div|OUT[6]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.256      ;
+; 1.019 ; divisor:div|OUT[12] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.069      ; 1.259      ;
+; 1.020 ; divisor:div|OUT[17] ; divisor:div|OUT[17] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.087      ; 1.278      ;
+; 1.024 ; divisor:div|OUT[20] ; divisor:div|OUT[20] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.087      ; 1.282      ;
+; 1.037 ; divisor:div|OUT[23] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.087      ; 1.295      ;
+; 1.040 ; divisor:div|OUT[16] ; divisor:div|OUT[19] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.469      ; 1.680      ;
+; 1.042 ; divisor:div|OUT[12] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.285      ;
+; 1.047 ; divisor:div|OUT[16] ; divisor:div|OUT[20] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.468      ; 1.686      ;
+; 1.053 ; divisor:div|OUT[18] ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.469      ; 1.693      ;
+; 1.063 ; divisor:div|OUT[12] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.465      ; 1.699      ;
+; 1.066 ; divisor:div|OUT[14] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.071      ; 1.308      ;
+; 1.089 ; divisor:div|OUT[16] ; divisor:div|OUT[15] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.469      ; 1.729      ;
+; 1.089 ; divisor:div|OUT[16] ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.469      ; 1.729      ;
+; 1.094 ; divisor:div|OUT[22] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.087      ; 1.352      ;
+; 1.098 ; divisor:div|OUT[1]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.341      ;
+; 1.098 ; divisor:div|OUT[5]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.341      ;
+; 1.099 ; divisor:div|OUT[7]  ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.342      ;
+; 1.105 ; divisor:div|OUT[3]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.348      ;
+; 1.109 ; divisor:div|OUT[1]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.352      ;
+; 1.109 ; divisor:div|OUT[5]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.352      ;
+; 1.110 ; divisor:div|OUT[14] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.467      ; 1.748      ;
+; 1.111 ; divisor:div|OUT[11] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.069      ; 1.351      ;
+; 1.111 ; divisor:div|OUT[0]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.354      ;
+; 1.112 ; divisor:div|OUT[4]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.355      ;
+; 1.112 ; divisor:div|OUT[6]  ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.355      ;
+; 1.118 ; divisor:div|OUT[2]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.361      ;
+; 1.121 ; divisor:div|OUT[10] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.069      ; 1.361      ;
+; 1.122 ; divisor:div|OUT[0]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.365      ;
+; 1.123 ; divisor:div|OUT[4]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.366      ;
+; 1.125 ; divisor:div|OUT[18] ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.468      ; 1.764      ;
+; 1.129 ; divisor:div|OUT[12] ; divisor:div|OUT[18] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.069      ; 1.369      ;
+; 1.147 ; divisor:div|OUT[18] ; divisor:div|OUT[17] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.468      ; 1.786      ;
+; 1.152 ; divisor:div|OUT[7]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.395      ;
+; 1.155 ; divisor:div|OUT[11] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.465      ; 1.791      ;
+; 1.157 ; divisor:div|OUT[18] ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.469      ; 1.797      ;
+; 1.159 ; divisor:div|OUT[13] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.071      ; 1.401      ;
+; 1.163 ; divisor:div|OUT[16] ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.469      ; 1.803      ;
+; 1.165 ; divisor:div|OUT[10] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.465      ; 1.801      ;
+; 1.167 ; divisor:div|OUT[12] ; divisor:div|OUT[17] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.465      ; 1.803      ;
+; 1.174 ; divisor:div|OUT[12] ; divisor:div|OUT[15] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.466      ; 1.811      ;
+; 1.176 ; divisor:div|OUT[14] ; divisor:div|OUT[18] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.071      ; 1.418      ;
+; 1.177 ; divisor:div|OUT[24] ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.087      ; 1.435      ;
+; 1.182 ; divisor:div|OUT[0]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.425      ;
+; 1.192 ; divisor:div|OUT[21] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.087      ; 1.450      ;
+; 1.202 ; divisor:div|OUT[17] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.087      ; 1.460      ;
+; 1.203 ; divisor:div|OUT[13] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.467      ; 1.841      ;
+; 1.204 ; divisor:div|OUT[3]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.072      ; 1.447      ;
++-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++----------------------------------------+
+; Fast 1200mV 0C Model Setup Summary     ;
++---------------+--------+---------------+
+; Clock         ; Slack  ; End Point TNS ;
++---------------+--------+---------------+
+; clockFPGA     ; -0.780 ; -10.548       ;
+; divisor:div|S ; 0.203  ; 0.000         ;
++---------------+--------+---------------+
+
+
++---------------------------------------+
+; Fast 1200mV 0C Model Hold Summary     ;
++---------------+-------+---------------+
+; Clock         ; Slack ; End Point TNS ;
++---------------+-------+---------------+
+; divisor:div|S ; 0.173 ; 0.000         ;
+; clockFPGA     ; 0.292 ; 0.000         ;
++---------------+-------+---------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++---------------+--------+-------------------------+
+; Clock         ; Slack  ; End Point TNS           ;
++---------------+--------+-------------------------+
+; clockFPGA     ; -3.000 ; -31.859                 ;
+; divisor:div|S ; -1.000 ; -10.000                 ;
++---------------+--------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clockFPGA'                                                                                  ;
++--------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node           ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; -0.780 ; divisor:div|OUT[7]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.726      ;
+; -0.779 ; divisor:div|OUT[7]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.725      ;
+; -0.779 ; divisor:div|OUT[7]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.725      ;
+; -0.724 ; divisor:div|OUT[8]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.670      ;
+; -0.723 ; divisor:div|OUT[8]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.669      ;
+; -0.723 ; divisor:div|OUT[8]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.669      ;
+; -0.708 ; divisor:div|OUT[7]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.651      ;
+; -0.683 ; divisor:div|OUT[1]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.629      ;
+; -0.682 ; divisor:div|OUT[1]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.628      ;
+; -0.682 ; divisor:div|OUT[1]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.628      ;
+; -0.672 ; divisor:div|OUT[2]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.618      ;
+; -0.671 ; divisor:div|OUT[2]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.617      ;
+; -0.671 ; divisor:div|OUT[2]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.617      ;
+; -0.669 ; divisor:div|OUT[11] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.615      ;
+; -0.668 ; divisor:div|OUT[11] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.614      ;
+; -0.668 ; divisor:div|OUT[11] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.614      ;
+; -0.666 ; divisor:div|OUT[1]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.609      ;
+; -0.655 ; divisor:div|OUT[25] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.401      ;
+; -0.654 ; divisor:div|OUT[25] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.400      ;
+; -0.654 ; divisor:div|OUT[25] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.400      ;
+; -0.652 ; divisor:div|OUT[8]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.595      ;
+; -0.652 ; divisor:div|OUT[0]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.595      ;
+; -0.647 ; divisor:div|OUT[3]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.593      ;
+; -0.646 ; divisor:div|OUT[20] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.392      ;
+; -0.646 ; divisor:div|OUT[3]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.592      ;
+; -0.646 ; divisor:div|OUT[3]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.592      ;
+; -0.645 ; divisor:div|OUT[20] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.391      ;
+; -0.645 ; divisor:div|OUT[20] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.391      ;
+; -0.644 ; divisor:div|OUT[1]  ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.782      ;
+; -0.637 ; divisor:div|OUT[10] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.583      ;
+; -0.636 ; divisor:div|OUT[10] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.582      ;
+; -0.636 ; divisor:div|OUT[10] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.582      ;
+; -0.635 ; divisor:div|OUT[1]  ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.773      ;
+; -0.630 ; divisor:div|OUT[15] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.376      ;
+; -0.630 ; divisor:div|OUT[0]  ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.768      ;
+; -0.629 ; divisor:div|OUT[15] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.375      ;
+; -0.629 ; divisor:div|OUT[15] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.375      ;
+; -0.628 ; divisor:div|OUT[6]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.574      ;
+; -0.627 ; divisor:div|OUT[6]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.573      ;
+; -0.627 ; divisor:div|OUT[6]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.573      ;
+; -0.626 ; divisor:div|OUT[1]  ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.764      ;
+; -0.621 ; divisor:div|OUT[0]  ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.759      ;
+; -0.620 ; divisor:div|OUT[1]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.150      ; 1.757      ;
+; -0.611 ; divisor:div|OUT[1]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.554      ;
+; -0.611 ; divisor:div|OUT[12] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.557      ;
+; -0.610 ; divisor:div|OUT[12] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.556      ;
+; -0.610 ; divisor:div|OUT[12] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.556      ;
+; -0.606 ; divisor:div|OUT[0]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.150      ; 1.743      ;
+; -0.600 ; divisor:div|OUT[2]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.543      ;
+; -0.597 ; divisor:div|OUT[11] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.540      ;
+; -0.594 ; divisor:div|OUT[3]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.537      ;
+; -0.590 ; divisor:div|OUT[7]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.150      ; 1.727      ;
+; -0.584 ; divisor:div|OUT[2]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.527      ;
+; -0.583 ; divisor:div|OUT[25] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.244     ; 1.326      ;
+; -0.579 ; divisor:div|OUT[17] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.325      ;
+; -0.578 ; divisor:div|OUT[9]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.524      ;
+; -0.578 ; divisor:div|OUT[17] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.324      ;
+; -0.578 ; divisor:div|OUT[17] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.324      ;
+; -0.578 ; divisor:div|OUT[0]  ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.716      ;
+; -0.577 ; divisor:div|OUT[9]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.523      ;
+; -0.577 ; divisor:div|OUT[9]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.523      ;
+; -0.575 ; divisor:div|OUT[3]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.518      ;
+; -0.574 ; divisor:div|OUT[20] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.244     ; 1.317      ;
+; -0.572 ; divisor:div|OUT[7]  ; divisor:div|S       ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.515      ;
+; -0.572 ; divisor:div|OUT[3]  ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.710      ;
+; -0.569 ; divisor:div|OUT[7]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.512      ;
+; -0.565 ; divisor:div|OUT[10] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.508      ;
+; -0.563 ; divisor:div|OUT[3]  ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.701      ;
+; -0.562 ; divisor:div|OUT[2]  ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.700      ;
+; -0.558 ; divisor:div|OUT[15] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.244     ; 1.301      ;
+; -0.556 ; divisor:div|OUT[6]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.499      ;
+; -0.555 ; divisor:div|OUT[1]  ; divisor:div|OUT[20] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.150      ; 1.692      ;
+; -0.554 ; divisor:div|OUT[3]  ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.692      ;
+; -0.553 ; divisor:div|OUT[2]  ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.691      ;
+; -0.548 ; divisor:div|OUT[3]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.150      ; 1.685      ;
+; -0.545 ; divisor:div|OUT[5]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.491      ;
+; -0.544 ; divisor:div|OUT[5]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.490      ;
+; -0.544 ; divisor:div|OUT[5]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.490      ;
+; -0.539 ; divisor:div|OUT[12] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.482      ;
+; -0.538 ; divisor:div|OUT[2]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.150      ; 1.675      ;
+; -0.534 ; divisor:div|OUT[8]  ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.150      ; 1.671      ;
+; -0.530 ; divisor:div|OUT[5]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.473      ;
+; -0.523 ; divisor:div|OUT[23] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.269      ;
+; -0.522 ; divisor:div|OUT[23] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.268      ;
+; -0.522 ; divisor:div|OUT[23] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.268      ;
+; -0.521 ; divisor:div|OUT[21] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.267      ;
+; -0.520 ; divisor:div|OUT[21] ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.266      ;
+; -0.520 ; divisor:div|OUT[21] ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.241     ; 1.266      ;
+; -0.519 ; divisor:div|OUT[7]  ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.657      ;
+; -0.519 ; divisor:div|OUT[7]  ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.657      ;
+; -0.517 ; divisor:div|OUT[7]  ; divisor:div|OUT[19] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.655      ;
+; -0.517 ; divisor:div|OUT[0]  ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.463      ;
+; -0.516 ; divisor:div|OUT[0]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.462      ;
+; -0.516 ; divisor:div|OUT[0]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.041     ; 1.462      ;
+; -0.516 ; divisor:div|OUT[4]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.459      ;
+; -0.516 ; divisor:div|OUT[8]  ; divisor:div|S       ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.459      ;
+; -0.513 ; divisor:div|OUT[8]  ; divisor:div|OUT[13] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.456      ;
+; -0.511 ; divisor:div|OUT[0]  ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 1.000        ; -0.044     ; 1.454      ;
+; -0.509 ; divisor:div|OUT[2]  ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.647      ;
+; -0.508 ; divisor:div|OUT[5]  ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 1.000        ; 0.151      ; 1.646      ;
++--------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'divisor:div|S'                                                                                ;
++-------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+; Slack ; From Node           ; To Node             ; Launch Clock  ; Latch Clock   ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+; 0.203 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.042     ; 0.742      ;
+; 0.216 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.042     ; 0.729      ;
+; 0.225 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.721      ;
+; 0.263 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.244     ; 0.480      ;
+; 0.290 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.656      ;
+; 0.293 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.042     ; 0.652      ;
+; 0.298 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.648      ;
+; 0.300 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.646      ;
+; 0.302 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.644      ;
+; 0.305 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.641      ;
+; 0.313 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.633      ;
+; 0.313 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.633      ;
+; 0.315 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.042     ; 0.630      ;
+; 0.316 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.630      ;
+; 0.356 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.244     ; 0.387      ;
+; 0.370 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.576      ;
+; 0.373 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.573      ;
+; 0.375 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.571      ;
+; 0.376 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.570      ;
+; 0.377 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.569      ;
+; 0.382 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.564      ;
+; 0.391 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.555      ;
+; 0.412 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.041     ; 0.534      ;
+; 0.422 ; MooreMachine:mm|y.J ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 1.000        ; 0.152      ; 0.717      ;
+; 0.455 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.042     ; 0.490      ;
+; 0.479 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 1.000        ; 0.152      ; 0.660      ;
+; 0.507 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 1.000        ; 0.153      ; 0.633      ;
+; 0.587 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.050     ; 0.350      ;
+; 0.595 ; MooreMachine:mm|y.J ; MooreMachine:mm|y.J ; divisor:div|S ; divisor:div|S ; 1.000        ; -0.042     ; 0.350      ;
++-------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'divisor:div|S'                                                                                 ;
++-------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+; Slack ; From Node           ; To Node             ; Launch Clock  ; Latch Clock   ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+; 0.173 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.050      ; 0.307      ;
+; 0.181 ; MooreMachine:mm|y.J ; MooreMachine:mm|y.J ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.042      ; 0.307      ;
+; 0.225 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.244      ; 0.553      ;
+; 0.234 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.244      ; 0.562      ;
+; 0.255 ; MooreMachine:mm|y.J ; MooreMachine:mm|y.A ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.244      ; 0.583      ;
+; 0.279 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.042      ; 0.405      ;
+; 0.329 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.454      ;
+; 0.337 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.462      ;
+; 0.338 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.463      ;
+; 0.361 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.486      ;
+; 0.363 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.488      ;
+; 0.363 ; MooreMachine:mm|y.F ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.488      ;
+; 0.364 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.489      ;
+; 0.367 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.492      ;
+; 0.399 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.524      ;
+; 0.401 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 0.000        ; -0.152     ; 0.333      ;
+; 0.411 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.G ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.536      ;
+; 0.411 ; MooreMachine:mm|y.G ; MooreMachine:mm|y.F ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.536      ;
+; 0.420 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.E ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.545      ;
+; 0.422 ; MooreMachine:mm|y.E ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.547      ;
+; 0.423 ; MooreMachine:mm|y.H ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.548      ;
+; 0.424 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.H ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.549      ;
+; 0.424 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.D ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.549      ;
+; 0.430 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.042      ; 0.556      ;
+; 0.436 ; MooreMachine:mm|y.D ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.042      ; 0.562      ;
+; 0.474 ; MooreMachine:mm|y.C ; MooreMachine:mm|y.C ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.042      ; 0.600      ;
+; 0.481 ; MooreMachine:mm|y.A ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 0.000        ; -0.153     ; 0.412      ;
+; 0.484 ; MooreMachine:mm|y.I ; MooreMachine:mm|y.I ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.041      ; 0.609      ;
+; 0.495 ; MooreMachine:mm|y.B ; MooreMachine:mm|y.B ; divisor:div|S ; divisor:div|S ; 0.000        ; 0.042      ; 0.621      ;
++-------+---------------------+---------------------+---------------+---------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clockFPGA'                                                                                  ;
++-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node           ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; 0.292 ; divisor:div|OUT[24] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.050      ; 0.426      ;
+; 0.299 ; divisor:div|OUT[3]  ; divisor:div|OUT[3]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.424      ;
+; 0.300 ; divisor:div|OUT[11] ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.425      ;
+; 0.300 ; divisor:div|OUT[10] ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.425      ;
+; 0.300 ; divisor:div|OUT[5]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.425      ;
+; 0.300 ; divisor:div|OUT[2]  ; divisor:div|OUT[2]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.425      ;
+; 0.301 ; divisor:div|OUT[1]  ; divisor:div|OUT[1]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.426      ;
+; 0.301 ; divisor:div|OUT[18] ; divisor:div|OUT[18] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.426      ;
+; 0.301 ; divisor:div|OUT[16] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.426      ;
+; 0.301 ; divisor:div|OUT[9]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.426      ;
+; 0.301 ; divisor:div|OUT[8]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.426      ;
+; 0.301 ; divisor:div|OUT[4]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.426      ;
+; 0.302 ; divisor:div|OUT[6]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.427      ;
+; 0.391 ; divisor:div|OUT[18] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.719      ;
+; 0.442 ; divisor:div|OUT[25] ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.050      ; 0.576      ;
+; 0.448 ; divisor:div|OUT[3]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.573      ;
+; 0.449 ; divisor:div|OUT[5]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.574      ;
+; 0.450 ; divisor:div|OUT[9]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.575      ;
+; 0.450 ; divisor:div|OUT[1]  ; divisor:div|OUT[2]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.575      ;
+; 0.452 ; divisor:div|OUT[7]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.577      ;
+; 0.457 ; divisor:div|OUT[16] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.785      ;
+; 0.458 ; divisor:div|OUT[2]  ; divisor:div|OUT[3]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.583      ;
+; 0.458 ; divisor:div|OUT[10] ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.583      ;
+; 0.459 ; divisor:div|OUT[4]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.584      ;
+; 0.459 ; divisor:div|OUT[0]  ; divisor:div|OUT[1]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.584      ;
+; 0.459 ; divisor:div|OUT[8]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.584      ;
+; 0.461 ; divisor:div|OUT[2]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.586      ;
+; 0.462 ; divisor:div|OUT[16] ; divisor:div|OUT[18] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.587      ;
+; 0.462 ; divisor:div|OUT[4]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.587      ;
+; 0.462 ; divisor:div|OUT[8]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.587      ;
+; 0.462 ; divisor:div|OUT[0]  ; divisor:div|OUT[2]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.587      ;
+; 0.463 ; divisor:div|OUT[6]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.588      ;
+; 0.469 ; divisor:div|OUT[16] ; divisor:div|OUT[17] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.797      ;
+; 0.471 ; divisor:div|OUT[18] ; divisor:div|OUT[20] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.799      ;
+; 0.482 ; divisor:div|OUT[18] ; divisor:div|OUT[19] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.810      ;
+; 0.506 ; divisor:div|OUT[17] ; divisor:div|OUT[17] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.050      ; 0.640      ;
+; 0.507 ; divisor:div|OUT[20] ; divisor:div|OUT[20] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.050      ; 0.641      ;
+; 0.511 ; divisor:div|OUT[3]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.636      ;
+; 0.512 ; divisor:div|OUT[23] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.049      ; 0.645      ;
+; 0.513 ; divisor:div|OUT[1]  ; divisor:div|OUT[3]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.638      ;
+; 0.513 ; divisor:div|OUT[9]  ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.638      ;
+; 0.514 ; divisor:div|OUT[3]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.639      ;
+; 0.515 ; divisor:div|OUT[7]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.640      ;
+; 0.515 ; divisor:div|OUT[5]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.640      ;
+; 0.516 ; divisor:div|OUT[1]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.641      ;
+; 0.518 ; divisor:div|OUT[7]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.643      ;
+; 0.519 ; divisor:div|OUT[12] ; divisor:div|OUT[12] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.644      ;
+; 0.522 ; divisor:div|OUT[20] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.050      ; 0.656      ;
+; 0.524 ; divisor:div|OUT[2]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.649      ;
+; 0.525 ; divisor:div|OUT[0]  ; divisor:div|OUT[3]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.650      ;
+; 0.525 ; divisor:div|OUT[8]  ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.650      ;
+; 0.526 ; divisor:div|OUT[18] ; divisor:div|OUT[15] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.854      ;
+; 0.526 ; divisor:div|OUT[18] ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.854      ;
+; 0.526 ; divisor:div|OUT[6]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.651      ;
+; 0.527 ; divisor:div|OUT[2]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.652      ;
+; 0.528 ; divisor:div|OUT[4]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.653      ;
+; 0.528 ; divisor:div|OUT[0]  ; divisor:div|OUT[4]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.653      ;
+; 0.529 ; divisor:div|OUT[6]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.654      ;
+; 0.534 ; divisor:div|OUT[14] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.659      ;
+; 0.535 ; divisor:div|OUT[12] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.038      ; 0.657      ;
+; 0.537 ; divisor:div|OUT[16] ; divisor:div|OUT[20] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.865      ;
+; 0.541 ; divisor:div|OUT[22] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.049      ; 0.674      ;
+; 0.543 ; divisor:div|OUT[18] ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.871      ;
+; 0.548 ; divisor:div|OUT[16] ; divisor:div|OUT[19] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.876      ;
+; 0.563 ; divisor:div|OUT[16] ; divisor:div|OUT[15] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.891      ;
+; 0.563 ; divisor:div|OUT[16] ; divisor:div|OUT[21] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.891      ;
+; 0.578 ; divisor:div|OUT[5]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.703      ;
+; 0.579 ; divisor:div|OUT[7]  ; divisor:div|OUT[7]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.704      ;
+; 0.579 ; divisor:div|OUT[1]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.704      ;
+; 0.580 ; divisor:div|OUT[3]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.705      ;
+; 0.581 ; divisor:div|OUT[7]  ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.706      ;
+; 0.581 ; divisor:div|OUT[5]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.706      ;
+; 0.582 ; divisor:div|OUT[1]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.707      ;
+; 0.583 ; divisor:div|OUT[13] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.708      ;
+; 0.584 ; divisor:div|OUT[11] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.038      ; 0.706      ;
+; 0.591 ; divisor:div|OUT[23] ; divisor:div|OUT[23] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.049      ; 0.724      ;
+; 0.591 ; divisor:div|OUT[18] ; divisor:div|OUT[17] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.919      ;
+; 0.591 ; divisor:div|OUT[4]  ; divisor:div|OUT[9]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.716      ;
+; 0.591 ; divisor:div|OUT[0]  ; divisor:div|OUT[5]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.716      ;
+; 0.592 ; divisor:div|OUT[6]  ; divisor:div|OUT[11] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.717      ;
+; 0.593 ; divisor:div|OUT[2]  ; divisor:div|OUT[8]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.718      ;
+; 0.594 ; divisor:div|OUT[4]  ; divisor:div|OUT[10] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.719      ;
+; 0.594 ; divisor:div|OUT[0]  ; divisor:div|OUT[6]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.719      ;
+; 0.595 ; divisor:div|OUT[0]  ; divisor:div|OUT[0]  ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.720      ;
+; 0.595 ; divisor:div|OUT[21] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.049      ; 0.728      ;
+; 0.595 ; divisor:div|OUT[14] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.923      ;
+; 0.596 ; divisor:div|OUT[10] ; divisor:div|OUT[16] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.038      ; 0.718      ;
+; 0.596 ; divisor:div|OUT[12] ; divisor:div|OUT[24] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.241      ; 0.921      ;
+; 0.598 ; divisor:div|OUT[22] ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.049      ; 0.731      ;
+; 0.599 ; divisor:div|OUT[14] ; divisor:div|OUT[14] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.724      ;
+; 0.600 ; divisor:div|OUT[14] ; divisor:div|OUT[18] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.041      ; 0.725      ;
+; 0.601 ; divisor:div|OUT[24] ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.050      ; 0.735      ;
+; 0.601 ; divisor:div|OUT[12] ; divisor:div|OUT[18] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.038      ; 0.723      ;
+; 0.602 ; divisor:div|OUT[19] ; divisor:div|OUT[19] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.049      ; 0.735      ;
+; 0.605 ; divisor:div|OUT[18] ; divisor:div|OUT[25] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.933      ;
+; 0.606 ; divisor:div|OUT[14] ; divisor:div|OUT[15] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.934      ;
+; 0.607 ; divisor:div|OUT[14] ; divisor:div|OUT[17] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.935      ;
+; 0.607 ; divisor:div|OUT[12] ; divisor:div|OUT[15] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.241      ; 0.932      ;
+; 0.608 ; divisor:div|OUT[12] ; divisor:div|OUT[17] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.241      ; 0.933      ;
+; 0.609 ; divisor:div|OUT[16] ; divisor:div|OUT[22] ; clockFPGA    ; clockFPGA   ; 0.000        ; 0.244      ; 0.937      ;
++-------+---------------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++-------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                           ;
++------------------+---------+-------+----------+---------+---------------------+
+; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+---------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -2.556  ; 0.173 ; N/A      ; N/A     ; -3.000              ;
+;  clockFPGA       ; -2.556  ; 0.292 ; N/A      ; N/A     ; -3.000              ;
+;  divisor:div|S   ; -0.637  ; 0.173 ; N/A      ; N/A     ; -1.285              ;
+; Design-wide TNS  ; -52.028 ; 0.0   ; 0.0      ; 0.0     ; -50.545             ;
+;  clockFPGA       ; -47.880 ; 0.000 ; N/A      ; N/A     ; -37.695             ;
+;  divisor:div|S   ; -4.148  ; 0.000 ; N/A      ; N/A     ; -12.850             ;
++------------------+---------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                         ;
++--------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin                ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++--------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; segment_display[0] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; segment_display[1] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; segment_display[2] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; segment_display[3] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; segment_display[4] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; segment_display[5] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; segment_display[6] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; mooreOut[0]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; mooreOut[1]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; mooreOut[2]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; mooreOut[3]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++--------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; w[0]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; w[1]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; RES                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; clockFPGA               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin                ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; segment_display[0] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; segment_display[1] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.33 V              ; -0.00467 V          ; 0.226 V                              ; 0.087 V                              ; 2.91e-09 s                  ; 2.74e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.33 V             ; -0.00467 V         ; 0.226 V                             ; 0.087 V                             ; 2.91e-09 s                 ; 2.74e-09 s                 ; Yes                       ; Yes                       ;
+; segment_display[2] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; segment_display[3] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.38 V              ; -0.0144 V           ; 0.227 V                              ; 0.024 V                              ; 3.14e-10 s                  ; 3.39e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.38 V             ; -0.0144 V          ; 0.227 V                             ; 0.024 V                             ; 3.14e-10 s                 ; 3.39e-10 s                 ; Yes                       ; Yes                       ;
+; segment_display[4] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.38 V              ; -0.0144 V           ; 0.227 V                              ; 0.024 V                              ; 3.14e-10 s                  ; 3.39e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.38 V             ; -0.0144 V          ; 0.227 V                             ; 0.024 V                             ; 3.14e-10 s                 ; 3.39e-10 s                 ; Yes                       ; Yes                       ;
+; segment_display[5] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.33 V              ; -0.00496 V          ; 0.223 V                              ; 0.086 V                              ; 2.9e-09 s                   ; 2.73e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.33 V             ; -0.00496 V         ; 0.223 V                             ; 0.086 V                             ; 2.9e-09 s                  ; 2.73e-09 s                 ; Yes                       ; Yes                       ;
+; segment_display[6] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.38 V              ; -0.0144 V           ; 0.227 V                              ; 0.024 V                              ; 3.14e-10 s                  ; 3.39e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.38 V             ; -0.0144 V          ; 0.227 V                             ; 0.024 V                             ; 3.14e-10 s                 ; 3.39e-10 s                 ; Yes                       ; Yes                       ;
+; mooreOut[0]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.33 V              ; -0.00496 V          ; 0.223 V                              ; 0.086 V                              ; 2.9e-09 s                   ; 2.73e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.33 V             ; -0.00496 V         ; 0.223 V                             ; 0.086 V                             ; 2.9e-09 s                  ; 2.73e-09 s                 ; Yes                       ; Yes                       ;
+; mooreOut[1]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.38 V              ; -0.0144 V           ; 0.227 V                              ; 0.024 V                              ; 3.14e-10 s                  ; 3.39e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.38 V             ; -0.0144 V          ; 0.227 V                             ; 0.024 V                             ; 3.14e-10 s                 ; 3.39e-10 s                 ; Yes                       ; Yes                       ;
+; mooreOut[2]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.38 V              ; -0.0144 V           ; 0.227 V                              ; 0.024 V                              ; 3.14e-10 s                  ; 3.39e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.38 V             ; -0.0144 V          ; 0.227 V                             ; 0.024 V                             ; 3.14e-10 s                 ; 3.39e-10 s                 ; Yes                       ; Yes                       ;
+; mooreOut[3]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.37 V              ; -0.00994 V          ; 0.186 V                              ; 0.028 V                              ; 4.98e-10 s                  ; 4.96e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.37 V             ; -0.00994 V         ; 0.186 V                             ; 0.028 V                             ; 4.98e-10 s                 ; 4.96e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.67e-09 V                   ; 2.38 V              ; -0.0485 V           ; 0.167 V                              ; 0.096 V                              ; 2.95e-10 s                  ; 2.73e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.67e-09 V                  ; 2.38 V             ; -0.0485 V          ; 0.167 V                             ; 0.096 V                             ; 2.95e-10 s                 ; 2.73e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.18e-09 V                   ; 2.38 V              ; -0.00483 V          ; 0.152 V                              ; 0.012 V                              ; 4.81e-10 s                  ; 6.29e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.18e-09 V                  ; 2.38 V             ; -0.00483 V         ; 0.152 V                             ; 0.012 V                             ; 4.81e-10 s                 ; 6.29e-10 s                 ; Yes                       ; Yes                       ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin                ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; segment_display[0] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; segment_display[1] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.33 V              ; -0.00265 V          ; 0.133 V                              ; 0.056 V                              ; 3.55e-09 s                  ; 3.31e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.33 V             ; -0.00265 V         ; 0.133 V                             ; 0.056 V                             ; 3.55e-09 s                 ; 3.31e-09 s                 ; Yes                       ; Yes                       ;
+; segment_display[2] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; segment_display[3] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.36 V              ; -0.00552 V          ; 0.11 V                               ; 0.007 V                              ; 4.54e-10 s                  ; 4.35e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.36 V             ; -0.00552 V         ; 0.11 V                              ; 0.007 V                             ; 4.54e-10 s                 ; 4.35e-10 s                 ; Yes                       ; Yes                       ;
+; segment_display[4] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.36 V              ; -0.00552 V          ; 0.11 V                               ; 0.007 V                              ; 4.54e-10 s                  ; 4.35e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.36 V             ; -0.00552 V         ; 0.11 V                              ; 0.007 V                             ; 4.54e-10 s                 ; 4.35e-10 s                 ; Yes                       ; Yes                       ;
+; segment_display[5] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.33 V              ; -0.00269 V          ; 0.13 V                               ; 0.055 V                              ; 3.54e-09 s                  ; 3.29e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.33 V             ; -0.00269 V         ; 0.13 V                              ; 0.055 V                             ; 3.54e-09 s                 ; 3.29e-09 s                 ; Yes                       ; Yes                       ;
+; segment_display[6] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.36 V              ; -0.00552 V          ; 0.11 V                               ; 0.007 V                              ; 4.54e-10 s                  ; 4.35e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.36 V             ; -0.00552 V         ; 0.11 V                              ; 0.007 V                             ; 4.54e-10 s                 ; 4.35e-10 s                 ; Yes                       ; Yes                       ;
+; mooreOut[0]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.33 V              ; -0.00269 V          ; 0.13 V                               ; 0.055 V                              ; 3.54e-09 s                  ; 3.29e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.33 V             ; -0.00269 V         ; 0.13 V                              ; 0.055 V                             ; 3.54e-09 s                 ; 3.29e-09 s                 ; Yes                       ; Yes                       ;
+; mooreOut[1]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.36 V              ; -0.00552 V          ; 0.11 V                               ; 0.007 V                              ; 4.54e-10 s                  ; 4.35e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.36 V             ; -0.00552 V         ; 0.11 V                              ; 0.007 V                             ; 4.54e-10 s                 ; 4.35e-10 s                 ; Yes                       ; Yes                       ;
+; mooreOut[2]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.36 V              ; -0.00552 V          ; 0.11 V                               ; 0.007 V                              ; 4.54e-10 s                  ; 4.35e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.36 V             ; -0.00552 V         ; 0.11 V                              ; 0.007 V                             ; 4.54e-10 s                 ; 4.35e-10 s                 ; Yes                       ; Yes                       ;
+; mooreOut[3]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.35 V              ; -0.00942 V          ; 0.116 V                              ; 0.033 V                              ; 6.66e-10 s                  ; 6.27e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.35 V             ; -0.00942 V         ; 0.116 V                             ; 0.033 V                             ; 6.66e-10 s                 ; 6.27e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.75e-07 V                   ; 2.35 V              ; -0.0109 V           ; 0.084 V                              ; 0.027 V                              ; 4.31e-10 s                  ; 3.61e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.75e-07 V                  ; 2.35 V             ; -0.0109 V          ; 0.084 V                             ; 0.027 V                             ; 4.31e-10 s                 ; 3.61e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.15e-07 V                   ; 2.35 V              ; -0.00712 V          ; 0.093 V                              ; 0.02 V                               ; 6.21e-10 s                  ; 7.9e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 6.15e-07 V                  ; 2.35 V             ; -0.00712 V         ; 0.093 V                             ; 0.02 V                              ; 6.21e-10 s                 ; 7.9e-10 s                  ; Yes                       ; Yes                       ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin                ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; segment_display[0] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; segment_display[1] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.64 V              ; -0.0113 V           ; 0.208 V                              ; 0.179 V                              ; 2.38e-09 s                  ; 2.23e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.64 V             ; -0.0113 V          ; 0.208 V                             ; 0.179 V                             ; 2.38e-09 s                 ; 2.23e-09 s                 ; No                        ; Yes                       ;
+; segment_display[2] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; segment_display[3] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.73 V              ; -0.0384 V           ; 0.169 V                              ; 0.089 V                              ; 2.7e-10 s                   ; 2.62e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.73 V             ; -0.0384 V          ; 0.169 V                             ; 0.089 V                             ; 2.7e-10 s                  ; 2.62e-10 s                 ; Yes                       ; Yes                       ;
+; segment_display[4] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.73 V              ; -0.0384 V           ; 0.169 V                              ; 0.089 V                              ; 2.7e-10 s                   ; 2.62e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.73 V             ; -0.0384 V          ; 0.169 V                             ; 0.089 V                             ; 2.7e-10 s                  ; 2.62e-10 s                 ; Yes                       ; Yes                       ;
+; segment_display[5] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.64 V              ; -0.0117 V           ; 0.202 V                              ; 0.176 V                              ; 2.38e-09 s                  ; 2.22e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.64 V             ; -0.0117 V          ; 0.202 V                             ; 0.176 V                             ; 2.38e-09 s                 ; 2.22e-09 s                 ; No                        ; Yes                       ;
+; segment_display[6] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.73 V              ; -0.0384 V           ; 0.169 V                              ; 0.089 V                              ; 2.7e-10 s                   ; 2.62e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.73 V             ; -0.0384 V          ; 0.169 V                             ; 0.089 V                             ; 2.7e-10 s                  ; 2.62e-10 s                 ; Yes                       ; Yes                       ;
+; mooreOut[0]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.64 V              ; -0.0117 V           ; 0.202 V                              ; 0.176 V                              ; 2.38e-09 s                  ; 2.22e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.64 V             ; -0.0117 V          ; 0.202 V                             ; 0.176 V                             ; 2.38e-09 s                 ; 2.22e-09 s                 ; No                        ; Yes                       ;
+; mooreOut[1]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.73 V              ; -0.0384 V           ; 0.169 V                              ; 0.089 V                              ; 2.7e-10 s                   ; 2.62e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.73 V             ; -0.0384 V          ; 0.169 V                             ; 0.089 V                             ; 2.7e-10 s                  ; 2.62e-10 s                 ; Yes                       ; Yes                       ;
+; mooreOut[2]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.73 V              ; -0.0384 V           ; 0.169 V                              ; 0.089 V                              ; 2.7e-10 s                   ; 2.62e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.73 V             ; -0.0384 V          ; 0.169 V                             ; 0.089 V                             ; 2.7e-10 s                  ; 2.62e-10 s                 ; Yes                       ; Yes                       ;
+; mooreOut[3]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.71 V              ; -0.0317 V           ; 0.148 V                              ; 0.064 V                              ; 4.51e-10 s                  ; 4.15e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.71 V             ; -0.0317 V          ; 0.148 V                             ; 0.064 V                             ; 4.51e-10 s                 ; 4.15e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-08 V                   ; 2.7 V               ; -0.00943 V          ; 0.276 V                              ; 0.035 V                              ; 3.19e-10 s                  ; 4.99e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-08 V                  ; 2.7 V              ; -0.00943 V         ; 0.276 V                             ; 0.035 V                             ; 3.19e-10 s                 ; 4.99e-10 s                 ; No                        ; Yes                       ;
++--------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++---------------------------------------------------------------------------+
+; Setup Transfers                                                           ;
++---------------+---------------+----------+----------+----------+----------+
+; From Clock    ; To Clock      ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++---------------+---------------+----------+----------+----------+----------+
+; clockFPGA     ; clockFPGA     ; 715      ; 0        ; 0        ; 0        ;
+; divisor:div|S ; divisor:div|S ; 29       ; 0        ; 0        ; 0        ;
++---------------+---------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------+
+; Hold Transfers                                                            ;
++---------------+---------------+----------+----------+----------+----------+
+; From Clock    ; To Clock      ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++---------------+---------------+----------+----------+----------+----------+
+; clockFPGA     ; clockFPGA     ; 715      ; 0        ; 0        ; 0        ;
+; divisor:div|S ; divisor:div|S ; 29       ; 0        ; 0        ; 0        ;
++---------------+---------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 3     ; 3    ;
+; Unconstrained Input Port Paths  ; 30    ; 30   ;
+; Unconstrained Output Ports      ; 11    ; 11   ;
+; Unconstrained Output Port Paths ; 64    ; 64   ;
++---------------------------------+-------+------+
+
+
++----------------------------------------------------+
+; Clock Status Summary                               ;
++---------------+---------------+------+-------------+
+; Target        ; Clock         ; Type ; Status      ;
++---------------+---------------+------+-------------+
+; clockFPGA     ; clockFPGA     ; Base ; Constrained ;
+; divisor:div|S ; divisor:div|S ; Base ; Constrained ;
++---------------+---------------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; RES        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; w[0]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; w[1]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                                 ;
++--------------------+---------------------------------------------------------------------------------------+
+; Output Port        ; Comment                                                                               ;
++--------------------+---------------------------------------------------------------------------------------+
+; mooreOut[0]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; mooreOut[1]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; mooreOut[2]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; mooreOut[3]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segment_display[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segment_display[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segment_display[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segment_display[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segment_display[4] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segment_display[5] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segment_display[6] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; RES        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; w[0]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; w[1]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                                 ;
++--------------------+---------------------------------------------------------------------------------------+
+; Output Port        ; Comment                                                                               ;
++--------------------+---------------------------------------------------------------------------------------+
+; mooreOut[0]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; mooreOut[1]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; mooreOut[2]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; mooreOut[3]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segment_display[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segment_display[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segment_display[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segment_display[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segment_display[4] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segment_display[5] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; segment_display[6] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+    Info: Processing started: Fri Dec 15 22:04:33 2023
+Info: Command: quartus_sta MooreVerilog -c MooreVerilog
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'MooreVerilog.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clockFPGA clockFPGA
+    Info (332105): create_clock -period 1.000 -name divisor:div|S divisor:div|S
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.556
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.556             -47.880 clockFPGA 
+    Info (332119):    -0.637              -4.148 divisor:div|S 
+Info (332146): Worst-case hold slack is 0.386
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.386               0.000 divisor:div|S 
+    Info (332119):     0.641               0.000 clockFPGA 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -37.695 clockFPGA 
+    Info (332119):    -1.285             -12.850 divisor:div|S 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.271
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.271             -40.476 clockFPGA 
+    Info (332119):    -0.474              -2.839 divisor:div|S 
+Info (332146): Worst-case hold slack is 0.338
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.338               0.000 divisor:div|S 
+    Info (332119):     0.586               0.000 clockFPGA 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -37.695 clockFPGA 
+    Info (332119):    -1.285             -12.850 divisor:div|S 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.780
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.780             -10.548 clockFPGA 
+    Info (332119):     0.203               0.000 divisor:div|S 
+Info (332146): Worst-case hold slack is 0.173
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.173               0.000 divisor:div|S 
+    Info (332119):     0.292               0.000 clockFPGA 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -31.859 clockFPGA 
+    Info (332119):    -1.000             -10.000 divisor:div|S 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4848 megabytes
+    Info: Processing ended: Fri Dec 15 22:04:34 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clockFPGA'
+Slack : -2.556
+TNS   : -47.880
+
+Type  : Slow 1200mV 85C Model Setup 'divisor:div|S'
+Slack : -0.637
+TNS   : -4.148
+
+Type  : Slow 1200mV 85C Model Hold 'divisor:div|S'
+Slack : 0.386
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clockFPGA'
+Slack : 0.641
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clockFPGA'
+Slack : -3.000
+TNS   : -37.695
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'divisor:div|S'
+Slack : -1.285
+TNS   : -12.850
+
+Type  : Slow 1200mV 0C Model Setup 'clockFPGA'
+Slack : -2.271
+TNS   : -40.476
+
+Type  : Slow 1200mV 0C Model Setup 'divisor:div|S'
+Slack : -0.474
+TNS   : -2.839
+
+Type  : Slow 1200mV 0C Model Hold 'divisor:div|S'
+Slack : 0.338
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clockFPGA'
+Slack : 0.586
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clockFPGA'
+Slack : -3.000
+TNS   : -37.695
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'divisor:div|S'
+Slack : -1.285
+TNS   : -12.850
+
+Type  : Fast 1200mV 0C Model Setup 'clockFPGA'
+Slack : -0.780
+TNS   : -10.548
+
+Type  : Fast 1200mV 0C Model Setup 'divisor:div|S'
+Slack : 0.203
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'divisor:div|S'
+Slack : 0.173
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clockFPGA'
+Slack : 0.292
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clockFPGA'
+Slack : -3.000
+TNS   : -31.859
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'divisor:div|S'
+Slack : -1.000
+TNS   : -10.000
+
+------------------------------------------------------------

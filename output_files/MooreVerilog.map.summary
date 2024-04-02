@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Dec 15 22:04:13 2023
+Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Revision Name : MooreVerilog
+Top-level Entity Name : main
+Family : Cyclone IV E
+Total logic elements : 77
+    Total combinational functions : 77
+    Dedicated logic registers : 37
+Total registers : 37
+Total pins : 15
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

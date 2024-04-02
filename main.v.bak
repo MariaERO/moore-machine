@@ -1,0 +1,22 @@
+module main (
+input U,
+input D,
+input CLK,
+input RES,
+output Z
+);
+
+wire divOut;
+
+divisor div (
+.CLK(CLK),
+.S(divOut)
+);
+
+MooreMachine MM (
+.U (U),
+.D (D),
+.clk(divOut),
+.reset(RES),
+.z(Z)
+);

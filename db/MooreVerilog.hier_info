@@ -1,0 +1,78 @@
+|main
+w[0] => w[0].IN1
+w[1] => w[1].IN1
+clockFPGA => clockFPGA.IN1
+RES => RES.IN1
+segment_display[0] <= decoder:dec.segmentos
+segment_display[1] <= decoder:dec.segmentos
+segment_display[2] <= decoder:dec.segmentos
+segment_display[3] <= decoder:dec.segmentos
+segment_display[4] <= decoder:dec.segmentos
+segment_display[5] <= decoder:dec.segmentos
+segment_display[6] <= decoder:dec.segmentos
+mooreOut[0] <= moore_output[0].DB_MAX_OUTPUT_PORT_TYPE
+mooreOut[1] <= moore_output[1].DB_MAX_OUTPUT_PORT_TYPE
+mooreOut[2] <= moore_output[2].DB_MAX_OUTPUT_PORT_TYPE
+mooreOut[3] <= moore_output[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|main|divisor:div
+CLK => S~reg0.CLK
+CLK => OUT[0].CLK
+CLK => OUT[1].CLK
+CLK => OUT[2].CLK
+CLK => OUT[3].CLK
+CLK => OUT[4].CLK
+CLK => OUT[5].CLK
+CLK => OUT[6].CLK
+CLK => OUT[7].CLK
+CLK => OUT[8].CLK
+CLK => OUT[9].CLK
+CLK => OUT[10].CLK
+CLK => OUT[11].CLK
+CLK => OUT[12].CLK
+CLK => OUT[13].CLK
+CLK => OUT[14].CLK
+CLK => OUT[15].CLK
+CLK => OUT[16].CLK
+CLK => OUT[17].CLK
+CLK => OUT[18].CLK
+CLK => OUT[19].CLK
+CLK => OUT[20].CLK
+CLK => OUT[21].CLK
+CLK => OUT[22].CLK
+CLK => OUT[23].CLK
+CLK => OUT[24].CLK
+CLK => OUT[25].CLK
+S <= S~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|main|MooreMachine:mm
+W[1] => Equal0.IN1
+W[1] => Equal1.IN0
+W[1] => Equal2.IN1
+W[0] => Equal0.IN0
+W[0] => Equal1.IN1
+W[0] => Equal2.IN0
+clk => y~1.DATAIN
+reset => y~3.DATAIN
+z[3] <= WideOr12.DB_MAX_OUTPUT_PORT_TYPE
+z[2] <= WideOr11.DB_MAX_OUTPUT_PORT_TYPE
+z[1] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
+z[0] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|main|decoder:dec
+A => Decoder0.IN0
+B => Decoder0.IN1
+C => Decoder0.IN2
+D => Decoder0.IN3
+segmentos[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segmentos[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segmentos[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segmentos[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segmentos[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segmentos[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segmentos[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
